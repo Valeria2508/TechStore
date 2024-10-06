@@ -6,6 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using TechStore.Config;
 using TechStore.Data;
+using TechStore.Repositories;
+using TechStore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,8 @@ var conectionDb = $"server={db_host};port={db_port};database={db_database};uid={
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(conectionDb, ServerVersion.Parse("8.0.20-mysql")));
 
 builder.Services.AddSingleton<Utilities>(); //add singleton sirve para poder usar las utilidades
+
+builder.Services.AddScoped<IProductRepository, ProductSerice>();
 
 //JWT configuracion
 builder.Services.AddAuthentication(config =>
