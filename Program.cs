@@ -27,6 +27,8 @@ builder.Services.AddSingleton<Utilities>(); //add singleton sirve para poder usa
 
 builder.Services.AddScoped<IProductRepository, ProductSerice>();
 
+builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryService>();
+
 //JWT configuracion
 builder.Services.AddAuthentication(config =>
 {
