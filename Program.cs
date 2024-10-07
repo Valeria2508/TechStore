@@ -65,16 +65,19 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TechStore API", Version = "v1" });
-
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer"
+        Title = "TechStore API",
+        Version = "v1",
+        Description = "API for managing a Tech store database. This version includes basic CRUD operations for users, products and categories.",
+        Contact = new OpenApiContact
+        {
+            Name = "Valeria Piedrahita Arbelaez" ,
+            Email = "valetqm2002@gmail.com",
+        }
     });
+
+    c.EnableAnnotations();
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
