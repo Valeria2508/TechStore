@@ -6,22 +6,22 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechStore.Repositories;
 
-namespace TechStore.Controllers.v1.Products
+namespace TechStore.Controllers.v1.Users
 {
     [ApiController]
-    [Route("api/v1/products")]
-    [Tags("products")]
+    [Route("api/v1/users")]
+    [Tags("user")]
     [Authorize]
-    public class ProductDeleteController : ProductController
+    public class UserDeleteController : UserController
     {
-        public ProductDeleteController(IProductRepository productRepository) : base(productRepository)
+        public UserDeleteController(IUserRepository userRepository) : base(userRepository)
         {
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete (int id){
-            await _productRepository.Delete(id);
+            await _userRepository.Delete(id);
             return NoContent();
         }
     }
-}
+    }

@@ -26,6 +26,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(
 builder.Services.AddSingleton<Utilities>(); //add singleton sirve para poder usar las utilidades
 
 builder.Services.AddScoped<IProductRepository, ProductSerice>();
+builder.Services.AddScoped<IUserRepository, UserService>();
+
 
 builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryService>();
 

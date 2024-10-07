@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechStore.DTO;
 using TechStore.Models;
@@ -12,6 +13,7 @@ namespace TechStore.Controllers.v1.Products
     [ApiController]
     [Route("api/v1/products")]
     [Tags("products")]
+    [Authorize]
     public class ProductUpdateController : ProductController
     {
         public ProductUpdateController(IProductRepository productRepository) : base(productRepository)
